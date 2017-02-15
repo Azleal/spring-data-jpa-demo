@@ -1,7 +1,6 @@
-package com.keveon.service.impl;
+package com.keveon.service;
 
 import com.keveon.model.Dept;
-import com.keveon.service.DeptService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
