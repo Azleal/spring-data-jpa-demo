@@ -22,8 +22,8 @@ public class ApplicationTests {
      *   第二个出现的数字(testNum)的含义为第n个 {testType} 方法
      */
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

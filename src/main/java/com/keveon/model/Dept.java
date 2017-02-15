@@ -1,6 +1,7 @@
 package com.keveon.model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ import java.util.List;
 @Table(name = "m_dept")
 @Data
 @RequiredArgsConstructor
-public class Dept implements Serializable{
+public class Dept implements Serializable {
     private static final long serialVersionUID = -8459755922288527580L;
 
     /**
