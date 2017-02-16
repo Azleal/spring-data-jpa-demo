@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
@@ -22,6 +23,7 @@ import static org.springframework.util.Assert.notNull;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("test")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   // 使用方法名指定测试顺序
 public class EmployeeDetailServiceTest {
 

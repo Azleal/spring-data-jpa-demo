@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
@@ -22,6 +23,8 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
+@ActiveProfiles("test")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   // 使用方法名指定测试顺序
 public class DeptServiceTest {
 
@@ -32,9 +35,9 @@ public class DeptServiceTest {
     @Before
     public void setUp() throws Exception {
         dept = new Dept();
-        dept.setId(1);
-        dept.setName("部门1");
-    }
+//        dept.setId(1);
+		dept.setName("研发部");
+	}
 
     @After
     public void tearDown() throws Exception {
@@ -47,22 +50,21 @@ public class DeptServiceTest {
 
     @Test
     public void test_2_update() throws Exception {
-        dept.setName("新部门名称1");
-        assertThat(service.update(dept), equalTo(true));
+		dept.setName("测试部");
+		assertThat(service.update(dept), equalTo(true));
     }
 
     @Test
     public void test_3_1_findOne() throws Exception {
-        assertThat(service.findOne(1).getName(), containsString("部门"));
-    }
+		assertThat(service.findOne(1).getName(), containsString("部"));
+	}
 
     @Test
     public void test_3_2_findByNameLike() throws Exception {
-        assertThat(service.findByNameLike("部门").size(), greaterThanOrEqualTo(1));
-    }
+		assertThat(service.findByNameLike("部").size(), greaterThanOrEqualTo(1));
+	}
 
     @Test
-    @Transactional
     public void test_4_1_delete() throws Exception {
         service.delete(1);
     }

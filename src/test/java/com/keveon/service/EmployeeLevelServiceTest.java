@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
@@ -23,6 +24,8 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
+@ActiveProfiles("test")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   // 使用方法名指定测试顺序
 public class EmployeeLevelServiceTest {
 
@@ -54,18 +57,17 @@ public class EmployeeLevelServiceTest {
 
     @Test
     public void test_3_findByNameLike() throws Exception {
-        assertThat(service.findByNameLike("经理").size(), greaterThanOrEqualTo(1));
-    }
+		assertThat(service.findByNameLike("职位").size(), greaterThanOrEqualTo(1));
+	}
 
     @Test
-    @Transactional
     public void test_4_1_remove() throws Exception {
         service.remove(1);
     }
 
     @Test
-    public void test_4_2remove() throws Exception {
-        service.remove(level);
+	public void test_4_2_remove() throws Exception {
+		service.remove(level);
     }
 
 }
