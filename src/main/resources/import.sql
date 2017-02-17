@@ -43,23 +43,13 @@ INSERT INTO m_employee_level (level_name) VALUES ('职位19');
 INSERT INTO m_employee_level (level_name) VALUES ('职位20');
 
 # 插入员工登录详情信息测试数据
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (1, 1, '192.168.1.1', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (2, 2, '192.168.1.2', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (3, 3, '192.168.1.3', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (4, 4, '192.168.1.4', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (5, 5, '192.168.1.5', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (6, 6, '192.168.1.6', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (7, 7, '192.168.1.7', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (8, 8, '192.168.1.8', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (9, 9, '192.168.1.9', '2017-02-16 17"37"36');
-INSERT INTO m_employee_detail (emp_id, emp_login_count, emp_last_login_ip, emp_last_login_time)
-VALUES (10, 10, '192.168.1.10', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (1, 1, '192.168.1.1', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (2, 2, '192.168.1.2', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (3, 3, '192.168.1.3', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (4, 4, '192.168.1.4', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (5, 5, '192.168.1.5', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (6, 6, '192.168.1.6', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (7, 7, '192.168.1.7', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (8, 8, '192.168.1.8', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (9, 9, '192.168.1.9', '2017-02-16 17"37"36');
+INSERT INTO m_employee_detail VALUES (10, 10, '192.168.1.10', '2017-02-16 17"37"36');

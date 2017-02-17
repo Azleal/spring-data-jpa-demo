@@ -1,6 +1,8 @@
 package com.keveon.service;
 
 import com.keveon.model.EmployeeLevel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -54,4 +56,11 @@ public interface EmployeeLevelService {
 	 * @return 符合条件的职位的信息
 	 */
 	List<EmployeeLevel> findByNameLike(String name);
+
+    /**
+     * 查询全部职位信息并分页
+     *
+     * @return 分页后的职位信息
+     */
+    Page<EmployeeLevel> pageAll(Pageable pageable);
 }

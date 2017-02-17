@@ -5,6 +5,8 @@ import com.keveon.repository.EmployeeLevelRepository;
 import com.keveon.service.EmployeeLevelService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
@@ -63,5 +65,10 @@ public class EmployeeLevelServiceImpl implements EmployeeLevelService {
 	@Override
 	public List<EmployeeLevel> findByNameLike(String name) {
 		return repository.findByNameLike("%" + name + "%");
+	}
+
+	@Override
+	public Page<EmployeeLevel> pageAll(Pageable pageable) {
+		return repository.findAll(pageable);
 	}
 }
