@@ -24,6 +24,15 @@ public interface EmployeeDetailService {
     void delete(Long id);
 
     /**
+     * 通过登录信息编号修改信息
+     *
+     * @param id 员工编号
+     * @param ip 登录ip地址
+     * @return 结果
+     */
+    Boolean setLogin(Long id, String ip);
+
+    /**
      * 通过登录信息编号查询登录信息信息
      *
      * @param id 登录信息编号
