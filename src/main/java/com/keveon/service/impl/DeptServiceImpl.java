@@ -3,8 +3,10 @@ package com.keveon.service.impl;
 import com.keveon.model.Dept;
 import com.keveon.repository.DeptRepository;
 import com.keveon.service.DeptService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -42,11 +44,16 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public Boolean update(Dept dept) {
-        // todo 判断无值的字段, 避免将本不准备修改的值改为null
+		Assert.notNull(dept.getId(), "部门编号不能为空.");
 
-        dept = repository.save(dept);
-        return !ObjectUtils.isEmpty(dept) && !StringUtils.isEmpty(dept.getId());
-    }
+		Dept tempDept = findOne(dept.getId());
+		Assert.notNull(tempDept, "部门信息不存在.修改失败..");
+
+		BeanUtils.copyProperties(dept, tempDept);
+
+		dept = repository.save(tempDept);
+		return !ObjectUtils.isEmpty(dept) && !StringUtils.isEmpty(dept.getId());
+	}
 
     @Override
     public Dept findOne(Integer id) {

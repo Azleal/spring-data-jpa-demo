@@ -11,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
@@ -29,45 +28,46 @@ import static org.junit.Assert.assertThat;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)   // 使用方法名指定测试顺序
 public class EmployeeLevelServiceTest {
 
-    @Autowired
-    private EmployeeLevelService service;
-    private EmployeeLevel level;
+	@Autowired
+	private EmployeeLevelService service;
+	private EmployeeLevel level;
 
-    @Before
-    public void setUp() throws Exception {
-        level = new EmployeeLevel();
+	@Before
+	public void setUp() throws Exception {
+		level = new EmployeeLevel();
 //        level.setId(1);
-        level.setName("客户经理");
-    }
+		level.setName("客户经理");
+	}
 
-    @After
-    public void tearDown() throws Exception {
-    }
+	@After
+	public void tearDown() throws Exception {
+	}
 
-    @Test
-    public void test_1_create() throws Exception {
-        assertThat(service.create(level), equalTo(true));
-    }
+	@Test
+	public void test_1_create() throws Exception {
+		assertThat(service.create(level), equalTo(true));
+	}
 
-    @Test
-    public void test_2_update() throws Exception {
-        level.setName("总经理");
-        assertThat(service.update(level), equalTo(true));
-    }
+	@Test
+	public void test_2_update() throws Exception {
+		level.setId(1);
+		level.setName("总经理");
+		assertThat(service.update(level), equalTo(true));
+	}
 
-    @Test
-    public void test_3_findByNameLike() throws Exception {
+	@Test
+	public void test_3_findByNameLike() throws Exception {
 		assertThat(service.findByNameLike("职位").size(), greaterThanOrEqualTo(1));
 	}
 
-    @Test
-    public void test_4_1_remove() throws Exception {
-        service.remove(1);
-    }
+	@Test
+	public void test_4_1_remove() throws Exception {
+		service.remove(1);
+	}
 
-    @Test
+	@Test
 	public void test_4_2_remove() throws Exception {
 		service.remove(level);
-    }
+	}
 
 }

@@ -3,8 +3,10 @@ package com.keveon.service.impl;
 import com.keveon.model.EmployeeLevel;
 import com.keveon.repository.EmployeeLevelRepository;
 import com.keveon.service.EmployeeLevelService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
@@ -17,39 +19,49 @@ import java.util.List;
 @Service
 public class EmployeeLevelServiceImpl implements EmployeeLevelService {
 
-    private final EmployeeLevelRepository repository;
+	private final EmployeeLevelRepository repository;
 
-    @Autowired
-    public EmployeeLevelServiceImpl(EmployeeLevelRepository repository) {
-        this.repository = repository;
-    }
+	@Autowired
+	public EmployeeLevelServiceImpl(EmployeeLevelRepository repository) {
+		this.repository = repository;
+	}
 
-    @Override
-    public Boolean create(EmployeeLevel employeeLevel) {
-        employeeLevel = repository.save(employeeLevel);
-        return !ObjectUtils.isEmpty(employeeLevel) && !StringUtils.isEmpty(employeeLevel.getId());
-    }
+	@Override
+	public Boolean create(EmployeeLevel employeeLevel) {
+		employeeLevel = repository.save(employeeLevel);
+		return !ObjectUtils.isEmpty(employeeLevel) && !StringUtils.isEmpty(employeeLevel.getId());
+	}
 
-    @Override
-    public void remove(Integer id) {
-        repository.delete(id);
-    }
+	@Override
+	public void remove(Integer id) {
+		repository.delete(id);
+	}
 
-    @Override
-    public void remove(EmployeeLevel employeeLevel) {
-        repository.delete(employeeLevel);
-    }
+	@Override
+	public void remove(EmployeeLevel employeeLevel) {
+		repository.delete(employeeLevel);
+	}
 
-    @Override
-    public Boolean update(EmployeeLevel employeeLevel) {
-        // todo 判断无值的字段, 避免将本不准备修改的值改为null
+	@Override
+	public Boolean update(EmployeeLevel employeeLevel) {
+		Assert.notNull(employeeLevel.getId(), "职位编号不能为空.");
 
-        employeeLevel = repository.save(employeeLevel);
-        return !ObjectUtils.isEmpty(employeeLevel) && !StringUtils.isEmpty(employeeLevel.getId());
-    }
+		EmployeeLevel tempEmployeeLevel = findOne(employeeLevel.getId());
+		Assert.notNull(tempEmployeeLevel, "职位信息不存在.修改失败..");
 
-    @Override
-    public List<EmployeeLevel> findByNameLike(String name) {
-        return repository.findByNameLike("%" + name + "%");
-    }
+		BeanUtils.copyProperties(employeeLevel, tempEmployeeLevel);
+
+		employeeLevel = repository.save(tempEmployeeLevel);
+		return !ObjectUtils.isEmpty(employeeLevel) && !StringUtils.isEmpty(employeeLevel.getId());
+	}
+
+	@Override
+	public EmployeeLevel findOne(Integer id) {
+		return repository.findOne(id);
+	}
+
+	@Override
+	public List<EmployeeLevel> findByNameLike(String name) {
+		return repository.findByNameLike("%" + name + "%");
+	}
 }
