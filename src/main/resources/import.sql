@@ -2,6 +2,13 @@
 #   此文件请不要整理  #
 # # # # # # # # # # # #
 
+# MySql建库语句, 自动生成的可能会造成中文乱码, 请手动执行
+# DROP DATABASE IF EXISTS demo;
+# CREATE DATABASE IF NOT EXISTS demo DEFAULT CHARACTER SET utf8;
+
+# DROP DATABASE IF EXISTS demo_test;
+# CREATE DATABASE IF NOT EXISTS demo_test DEFAULT CHARACTER SET utf8;
+
 # 插入部门信息测试数据
 INSERT INTO m_dept (dept_name) VALUES ('部门1');
 INSERT INTO m_dept (dept_name) VALUES ('部门2');
