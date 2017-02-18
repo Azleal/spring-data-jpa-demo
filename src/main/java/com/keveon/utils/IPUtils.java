@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static org.springframework.util.StringUtils.hasText;
+import static com.keveon.utils.ValidateUtils.isInvalidIP;
 
 /**
  * Created by Keveon on 2017/2/17.
@@ -49,15 +49,5 @@ public class IPUtils {
         if ("0:0:0:0:0:0:0:1".equals(ip))
             ip = "127.0.0.1";
         return ip;
-    }
-
-    /**
-     * 判断IP地址是否合法
-     *
-     * @param ip IP地址
-     * @return true 合法 & false 非法
-     */
-    private static boolean isInvalidIP(String ip) {
-        return hasText(ip) || "unknown".equalsIgnoreCase(ip);
     }
 }
