@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
+<configuration scan="true" scanPeriod="10 second" debug="false">
+
+    <property name="LOG_ROOT" value="D:/logs"/>
+    <property name="LOG_PATH" value="spring-data-jpa-demo"/>
+    <!--<property name="LOG_PATH" value="spring-data-jpa-demo"/>-->
+    <property name="LOG_HOME" value="${LOG_ROOT}/${LOG_PATH}"/>
+
+    <appender name="FILE-INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>
+                [ %d{yyyy-MM-dd HH:mm:ss.SSS} ] [ %-5level] [ %-4line] --- [ %21thread ] %logger{96}: %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/INFO.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>64 MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+
+        <prudent>true</prudent>
+    </appender>
+
+    <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>
+                [ %d{yyyy-MM-dd HH:mm:ss.SSS} ] [ %-5level] [ %-4line] --- [ %21thread ] %logger{96}: %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/ERROR.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>64 MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+
+        <prudent>true</prudent>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss.SSS}] [ %-5level] [ %-4line] --- [ %21thread ] %logger{32}: %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE-INFO"/>
+        <appender-ref ref="FILE-ERROR"/>
+    </root>
+
+    <logger name="cn.trafficdata" level="TRACE"/>
+
+    <logger name="com.mysql" level="WARN"/>
+    <logger name="com.alibaba" level="WARN"/>
+    <logger name="com.fasterxml" level="WARN"/>
+
+    <logger name="org.mybatis" level="WARN"/>
+    <logger name="org.thymeleaf" level="WARN"/>
+    <logger name="org.apache.poi" level="WARN"/>
+    <logger name="org.apache.commons" level="WARN"/>
+    <logger name="org.apache.xmlbeans" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+
+    <logger name="org.hibernate.Type.descriptor.sql.BasicBinder" level="TRACE"/>
+    <logger name="org.hibernate.Type.descriptor.sql.BasicExtractor" level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="INFO"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="INFO"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="INFO"/>
+
+</configuration>
