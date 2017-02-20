@@ -15,6 +15,12 @@ import java.util.Date;
 @Table(name = "m_employee")
 @Data
 @RequiredArgsConstructor
+@NamedNativeQueries(value = {
+        @NamedNativeQuery(name = "Employee.findByPhoneAAA", query = "SELECT m_employee e WHERE e.emp_phone = :phone")
+})
+@NamedQueries(value = {
+        @NamedQuery(name = "Employee.findByUsernameAndPasswordBBB", query = "FROM Employee e WHERE e.username = ?1 AND e.password = ?2")
+})
 public class Employee implements Serializable {
     private static final long serialVersionUID = -1426297524794331156L;
     /**
@@ -32,6 +38,12 @@ public class Employee implements Serializable {
     String name;
 
     /**
+     * 登录名
+     */
+    @Column(name = "emp_username", length = 10, unique = true)
+    String username;
+
+    /**
      * 密码
      */
     @Column(name = "emp_password", length = 50)
@@ -40,20 +52,20 @@ public class Employee implements Serializable {
     /**
      * 员工手机号
      */
-    @Column(name = "emp_phone", length = 11)
+    @Column(name = "emp_phone", length = 11, unique = true)
     String phone;
 
     /**
      * 身份证号码
      */
-    @Column(name = "emp_identity", length = 18)
+    @Column(name = "emp_identity", length = 18, unique = true)
     String identity;
 
     /**
      * 员工性别
      */
     @Column(name = "emp_gender")
-    Boolean gender;
+    Integer gender;
 
     /**
      * 员工出生日期

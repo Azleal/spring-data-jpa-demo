@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Keveon on 2017/2/14.
@@ -17,10 +14,6 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class EmployeeCondition implements Serializable {
     private static final long serialVersionUID = -1426297524794331156L;
-    /**
-     * 员工ID
-     */
-    Long id;
 
     /**
      * 员工姓名
@@ -43,14 +36,7 @@ public class EmployeeCondition implements Serializable {
      * 员工性别
      */
     @Column(name = "emp_gender")
-    Boolean gender;
-
-    /**
-     * 员工出生日期
-     */
-    @Column(name = "emp_birthday")
-    @Temporal(TemporalType.DATE)
-    Date birthday;
+    Integer gender;
 
     /**
      * 工作状态
@@ -61,26 +47,12 @@ public class EmployeeCondition implements Serializable {
     Boolean status;
 
     /**
-     * 入职日期
+     * 部门名称
      */
-    @Column(name = "emp_entryDate")
-    @Temporal(TemporalType.DATE)
-    Date entryDate;
+    String deptName;
 
     /**
-     * 离职日期
+     * 职位名称
      */
-    @Column(name = "emp_turnoverDate")
-    @Temporal(TemporalType.DATE)
-    Date turnoverDate;
-
-    /**
-     * 所在部门
-     */
-    Integer deptId;
-
-    /**
-     * 职位
-     */
-    Integer levelId;
+    String levelName;
 }

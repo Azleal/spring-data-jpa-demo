@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,11 +59,25 @@ public class EmployeeLevelServiceTest {
 	}
 
 	@Test
-	public void test_3_findByNameLike() throws Exception {
-		assertThat(service.findByNameLike("职位").size(), greaterThanOrEqualTo(1));
+    public void test_3_1_findByNameLike() throws Exception {
+        assertThat(service.findByNameLike("职位").size(), greaterThanOrEqualTo(1));
 	}
 
-	@Test
+    @Test
+    public void test_3_2_pageAll_1() throws Exception {
+        Pageable pageable = new PageRequest(0, 10);
+
+        assertThat(service.pageAll(pageable).getSize(), greaterThanOrEqualTo(1));
+    }
+
+    @Test
+    public void test_3_2_pageAll_2() throws Exception {
+        Pageable pageable = new PageRequest(0, 10, Sort.Direction.DESC, "id");
+
+        assertThat(service.pageAll(pageable).getContent().get(0).getId(), equalTo(20));
+    }
+
+    @Test
 	public void test_4_1_remove() throws Exception {
 		service.remove(1);
 	}
