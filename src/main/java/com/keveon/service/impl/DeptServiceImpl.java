@@ -43,14 +43,15 @@ public class DeptServiceImpl implements DeptService {
     }
 
     @Override
-    public Boolean update(Dept dept) {
-		Assert.notNull(dept.getId(), "部门编号不能为空.");
+	public Boolean update(Integer id, Dept dept) {
+		Assert.notNull(id, "部门编号不能为空.");
 
-		Dept tempDept = findOne(dept.getId());
+		Dept tempDept = findOne(id);
 		Assert.notNull(tempDept, "部门信息不存在.修改失败..");
 
 		BeanUtils.copyProperties(dept, tempDept);
 
+		tempDept.setId(id);
 		dept = repository.save(tempDept);
 		return !ObjectUtils.isEmpty(dept) && !StringUtils.isEmpty(dept.getId());
 	}

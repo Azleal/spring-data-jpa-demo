@@ -50,10 +50,10 @@ public class DeptServiceTest {
 
     @Test
     public void test_2_update() throws Exception {
-		dept.setId(1);
+//		dept.setId(1);
 		dept.setName("测试部");
-		assertThat(service.update(dept), equalTo(true));
-    }
+		assertThat(service.update(1, dept), equalTo(true));
+	}
 
     @Test
     public void test_3_1_findOne() throws Exception {
