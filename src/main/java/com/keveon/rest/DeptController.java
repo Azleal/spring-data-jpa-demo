@@ -29,22 +29,24 @@ public class DeptController {
 		this.service = service;
 	}
 
-	public Boolean save(Dept dept) {
+	@ApiOperation(value = "新增部门信息", notes = "根据dept对象创建部门信息")
+	@ApiImplicitParam(name = "dept", value = "部门信息", required = true, dataType = "DeptVo", paramType = "body")
+	@PostMapping
+	public Boolean save(@RequestBody Dept dept) {
 		return service.save(dept);
 	}
 
-	public void delete(Integer id) {
+	@ApiOperation(value = "删除部门信息", notes = "根据url的id来指定删除对象")
+	@ApiImplicitParam(name = "id", value = "部门编号", required = true, dataType = "Integer", paramType = "path")
+	@DeleteMapping("{id}")
+	public void delete(@PathVariable Integer id) {
 		service.delete(id);
-	}
-
-	public void delete(Dept dept) {
-		service.delete(dept);
 	}
 
 	@ApiOperation(value = "更新部门信息", notes = "根据url的id来指定更新对象，并根据传过来的dept信息来更新部门详细信息")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "id", value = "部门编号", required = true, dataType = "Integer", paramType = "path"),
-			@ApiImplicitParam(name = "dept", value = "部门编号", required = true, dataType = "Dept", paramType = "body")
+			@ApiImplicitParam(name = "dept", value = "部门信息", required = true, dataType = "DeptVo", paramType = "body")
 	})
 	@PatchMapping("{id}")
 	public Boolean update(@PathVariable Integer id, @RequestBody Dept dept) {
