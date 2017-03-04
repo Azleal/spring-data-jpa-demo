@@ -73,7 +73,7 @@ dependencies {
                  ┗━ CrudRepository
                      ┗━Repository
 
-> 这些 `Repository` 都是 `spring-data-commons` 提供给我们的核心接口, `spring-data-commons` 是 `Spring Data` 的核心包. 这个接口中为我们提供了数据的分页方法, 以及排序方法. ** `spring-data`让我们省了很多心了, 一切都按照这个规范进行构造, 就连业务系统中常用到的一些操作都为我们考虑到了, 而我们只需更用心的去关注业务逻辑层.** `spring-data` 将 `repository` 的颗粒度划得很细. 
+> 这些 `Repository` 都是 `spring-data-commons` 提供给我们的核心接口, `spring-data-commons` 是 `Spring Data` 的核心包. 这个接口中为我们提供了数据的分页方法, 以及排序方法. `spring-data` 让我们省了很多心了, 一切都按照这个规范进行构造, 就连业务系统中常用到的一些操作都为我们考虑到了, 而我们只需更用心的去关注业务逻辑层. `spring-data` 将 `repository` 的颗粒度划得很细. 
 
 - `Repository`：最基本的接口, 不提供任何功能, 仅作为 `SpringData` 的一个标记, 并提供实现.这个接口只是一个空的接口, 目的是为了统一所有 `Repository` 的类型, 其接口类型使用了泛型, 泛型参数中T代表实体类型, ID则是实体中id的类型. 任何直接或间接继承此接口的类或接口, 均会被Spring扫描到.
 - `CrudRepository`：提供最基本的增删改查方法.此接口中的方法大多是我们在访问数据库中常用的一些方法, 如果我们要写自己的DAO的时候, 只需定义个接口来集成它便可使用了.
@@ -81,8 +81,8 @@ dependencies {
 - `QueryByExampleExecutor`：提供查询功能, 后期会具体讲解.
 - `JpaRepository`：这个接口继承自 `PagingAndSortingRepository` , 里面的方法都是一些简单的操作, 并未涉及到复杂的逻辑. 当你在处理一些简单的数据逻辑时, 便可继承此接口. 
 - `JpaSpecificationExecutor`：提供 `criteria` 查询, 排序、支持分页, 此接口没有父类(不包括 `Object` ), 即没有上级接口. 
-- `SimpleJpaRepository`：实现 `JpaRepository` 和 `JpaSpecificationExecutor`接口, 使用 `[hibernate] (http://hibernate.org/)` 的 `EntityManager`做持久化相关处理. 您也可以更换为其他 `JPA` 实现, 如：`EclipseLink`、`TopLink` 等.
-- `QueryDslPredicateExecutor`：提供 `[Querydsl](http://www.querydsl.com/)` 查询的接口.
+- `SimpleJpaRepository`：实现 `JpaRepository` 和 `JpaSpecificationExecutor`接口, 使用 [hibernate] (http://hibernate.org/) 的 `EntityManager`做持久化相关处理. 您也可以更换为其他 `JPA` 实现, 如：`EclipseLink`、`TopLink` 等.
+- `QueryDslPredicateExecutor`：提供 [Querydsl](http://www.querydsl.com/) 查询的接口.
 - `QueryDslJpaRepository`：继承 `SimpleJpaRepository` 类, 实现 `QueryDslPredicateExecutor` 接口.
 
 ## 附录A：Github 常用按钮说明
