@@ -23,13 +23,13 @@ Spring Data JPA 的目标是通过让一些必须的工作变得更简单, 来�
 
 ### 特点
 
-> - 对建立基于Spring 和 JPA 的库的支持
-> - 支持 [Querydsl](http://www.querydsl.com/) predicates和安全类型的 JPA 查询
-> - Transparent auditing of domain class
-> - 分页支持, 动态查询执行, 可以集成自定义数据访问代码
-> - 在 `@Query` 注明查询引导时验证
-> - 支持基于XML的实体映射
-> - 引入 `@EnableJpaRepositories` , 实现基于JavaConfig based仓库配置.
+- 对建立基于Spring 和 JPA 的库的支持
+- 支持 [Querydsl](http://www.querydsl.com/) predicates和安全类型的 JPA 查询
+- Transparent auditing of domain class
+- 分页支持, 动态查询执行, 可以集成自定义数据访问代码
+- 在 `@Query` 注明查询引导时验证
+- 支持基于XML的实体映射
+- 引入 `@EnableJpaRepositories` , 实现基于JavaConfig based仓库配置.
 
 ## 正式开始
 
@@ -38,18 +38,24 @@ Spring Data JPA 的目标是通过让一些必须的工作变得更简单, 来�
 >在开始提到, 本项目采用SpringBoot做基础架构支撑, 项目中使用 `spring-data-jpa` 的推荐方法是使用依赖关系管理系统,也就是我们平时所说的包管理器、构建工具.下面两种工具对应的代码段可以复制并粘贴到您的项目中.
 如需帮助, 请参阅我们使用 [Maven](https://spring.io/guides/gs/maven/) 和 [Gradle](https://spring.io/guides/gs/gradle/) 构建的入门指南.
 
+###### Maven
 ``` Maven
 <dependencies>
+    ...
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
+    ...
 </dependencies>
 ```
 
+###### Gradle
 ``` Gradle
 dependencies {
+    ...
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    ...
 }
 ```
 
