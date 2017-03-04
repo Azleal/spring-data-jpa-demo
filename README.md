@@ -81,7 +81,7 @@ dependencies {
 - `QueryByExampleExecutor`：提供查询功能, 后期会具体讲解.
 - `JpaRepository`：这个接口继承自 `PagingAndSortingRepository` , 里面的方法都是一些简单的操作, 并未涉及到复杂的逻辑. 当你在处理一些简单的数据逻辑时, 便可继承此接口. 
 - `JpaSpecificationExecutor`：提供 `criteria` 查询, 排序、支持分页, 此接口没有父类(不包括 `Object` ), 即没有上级接口. 
-- `SimpleJpaRepository`：实现 `JpaRepository` 和 `JpaSpecificationExecutor`接口, 使用 [hibernate] (http://hibernate.org/) 的 `EntityManager`做持久化相关处理. 您也可以更换为其他 `JPA` 实现, 如：`EclipseLink`、`TopLink` 等.
+- `SimpleJpaRepository`：实现 `JpaRepository` 和 `JpaSpecificationExecutor`接口, 使用 [hibernate](http://hibernate.org/) 的 `EntityManager`做持久化相关处理. 您也可以更换为其他 `JPA` 实现, 如：`EclipseLink`、`TopLink` 等.
 - `QueryDslPredicateExecutor`：提供 [Querydsl](http://www.querydsl.com/) 查询的接口.
 - `QueryDslJpaRepository`：继承 `SimpleJpaRepository` 类, 实现 `QueryDslPredicateExecutor` 接口.
 
