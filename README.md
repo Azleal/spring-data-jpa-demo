@@ -5,15 +5,15 @@
 - 本项目采用 [SpringBoot](http://projects.spring.io/spring-boot/) 当前最新的1.5.1.RELEASE 做基础架构支撑, 参考本项目建议有一定的 [SpringBoot](http://projects.spring.io/spring-boot/) 基础及经验.
 - 部分资料来源于网络, 如有侵犯您的版权, 请联系我删除及调整.
 - 教程主要面向中文用户, 如果你英文良好, 建议直接阅读官网帮助文档.
-  - Accessing Data with JPA：[https://spring.io/guides/gs/accessing-data-jpa/](https://spring.io/guides/gs/accessing-data-jpa/)
-  - Accessing JPA Data with REST：[https://spring.io/guides/gs/accessing-data-rest/](https://spring.io/guides/gs/accessing-data-rest/)
+  - Accessing Data with JPA：[https://spring.io/guides/gs/accessing-data-jpa/](https://spring.io/guides/gs/accessing-data-jpa/).
+  - Accessing JPA Data with REST：[https://spring.io/guides/gs/accessing-data-rest/](https://spring.io/guides/gs/accessing-data-rest/).
 - 项目中Bean全部采用 [lombok](https://projectlombok.org/) 进行精简, 需要配合IDE插件使用, 在此项目不进行讨论, 如需了解更多, 参考以下链接：
-  - 官方文档地址：[https://projectlombok.org/features/index.html](https://projectlombok.org/features/index.html)
-  - 官方下载地址：[https://projectlombok.org/download.html](https://projectlombok.org/download.html)
+  - 官方文档地址：[https://projectlombok.org/features/index.html](https://projectlombok.org/features/index.html).
+  - 官方下载地址：[https://projectlombok.org/download.html](https://projectlombok.org/download.html).
   - lombok-intellij-plugin：[https://github.com/mplushnikov/lombok-intellij-plugin](https://github.com/mplushnikov/lombok-intellij-plugin).
 - 本项目所有配置文件均采用 `yaml` 方式, 如需了解更多, 请移步官网: <http://www.yaml.org/>.
 - 教程目前在不定时进行调整和补充, 需要关注更新的请Watch、Star、Fork.
-- 同时邀请您一起参与完善该教程, 帮助更多的人, 欢迎反馈错误和意见！
+- 同时邀请您一起参与完善该教程, 帮助更多的人, 欢迎反馈错误和意见!
 - 如果你想参与完善该教程, 请移步到 Github 上进行 Fork：
   - 地址：[https://github.com/Keveon/spring-data-jpa-demo](https://github.com/Keveon/spring-data-jpa-demo)
 
@@ -24,12 +24,12 @@ Spring Data JPA 的目标是通过让一些必须的工作变得更简单, 来�
 
 ### 特点
 
-- 对建立基于Spring 和 JPA 的库的支持
-- 支持 [Querydsl](http://www.querydsl.com/) predicates和安全类型的 JPA 查询
-- Transparent auditing of domain class
-- 分页支持, 动态查询执行, 可以集成自定义数据访问代码
-- 在 `@Query` 注明查询引导时验证
-- 支持基于XML的实体映射
+- 对建立基于Spring 和 JPA 的库的支持.
+- 支持 [Querydsl](http://www.querydsl.com/) predicates和安全类型的 JPA 查询.
+- Transparent auditing of domain class.
+- 分页支持, 动态查询执行, 可以集成自定义数据访问代码.
+- 在 `@Query` 注明查询引导时验证.
+- 支持基于XML的实体映射.
 - 引入 `@EnableJpaRepositories` , 实现基于JavaConfig based仓库配置.
 
 ## 正式开始
@@ -106,5 +106,5 @@ dependencies {
 
 ## 结束语
 
-- 真心感谢这些志同道合的人, 这个真的很重要, 也希望你能一起参与！
-- 同时感谢那些通过私聊或其他方式指出一些错误地方的朋友, 使得该教程能得以更加完善, 真心感谢！
+- 真心感谢这些志同道合的人, 这个真的很重要, 也希望你能一起参与!
+- 同时感谢那些通过私聊或其他方式指出一些错误地方的朋友, 使得该教程能得以更加完善, 真心感谢!
