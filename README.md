@@ -10,7 +10,7 @@
 - 项目中Bean全部采用 [lombok](https://projectlombok.org/) 进行精简, 需要配合IDE插件使用, 在此项目不进行讨论, 如需了解更多, 参考以下链接：
   - 官方文档地址：[https://projectlombok.org/features/index.html](https://projectlombok.org/features/index.html)
   - 官方下载地址：[https://projectlombok.org/download.html](https://projectlombok.org/download.html)
-  - lombok-intellij-plugin：[https://github.com/mplushnikov/lombok-intellij-plugin](https://github.com/mplushnikov/lombok-intellij-plugin)
+  - lombok-intellij-plugin：[https://github.com/mplushnikov/lombok-intellij-plugin](https://github.com/mplushnikov/lombok-intellij-plugin).
 - 本项目所有配置文件均采用 `yaml` 方式, 如需了解更多, 请移步官网: <http://www.yaml.org/>.
 - 教程目前在不定时进行调整和补充, 需要关注更新的请Watch、Star、Fork.
 - 同时邀请您一起参与完善该教程, 帮助更多的人, 欢迎反馈错误和意见！
