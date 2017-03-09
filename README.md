@@ -11,6 +11,7 @@
   - 官方文档地址：[https://projectlombok.org/features/index.html](https://projectlombok.org/features/index.html)
   - 官方下载地址：[https://projectlombok.org/download.html](https://projectlombok.org/download.html)
   - lombok-intellij-plugin：[https://github.com/mplushnikov/lombok-intellij-plugin](https://github.com/mplushnikov/lombok-intellij-plugin)
+- 本项目所有配置文件均采用 `yaml` 方式, 如需了解更多, 请移步官网: <http://www.yaml.org/>
 - 教程目前在不定时进行调整和补充, 需要关注更新的请Watch、Star、Fork.
 - 同时邀请您一起参与完善该教程, 帮助更多的人, 欢迎反馈错误和意见！
 - 如果你想参与完善该教程, 请移步到 Github 上进行 Fork：
